@@ -1,0 +1,38 @@
+Algoritmo ARREGLOS
+	Definir n, i Como Entero
+    Definir nombres, edades, notas Como Cadena
+    Definir notaNum Como Real
+	
+    Escribir "¿Cuántos estudiantes desea registrar?"
+    Leer n
+	
+    Dimension nombres[n], edades[n], notas[n]
+    Dimension notaNum[n]
+	
+
+    Para i=1 Hasta n Hacer
+        nombres[i] <- "Sin nombre"
+        edades[i] <- "0"
+        notas[i] <- "0.0"
+        notaNum[i] <- 0.0
+    FinPara
+	
+
+    Para i=1 Hasta n Hacer
+        Escribir "Ingrese el nombre del estudiante ", i, ":"
+        Leer nombres[i]
+        Escribir "Ingrese la edad del estudiante ", i, ":"
+        Leer edades[i]
+        Escribir "Ingrese la nota del estudiante ", i, ":"
+        Leer notas[i]
+        notaNum[i] <- ConvertirANumero(notas[i])
+    FinPara
+	
+
+    Escribir "--------------------------------------------"
+    Escribir "| No | Nombre       | Edad | Nota          |"
+    Escribir "--------------------------------------------"
+    Para i=1 Hasta n Hacer
+        Escribir "| ", i, "  | ", nombres[i], " | ", edades[i], "  | ", notaNum[i], " |"
+    FinPara
+FinAlgoritmo
