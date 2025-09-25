@@ -1,0 +1,75 @@
+Algoritmo sin_titulo
+	Definir pin_correcto, pin, suma, max, min, aprobadas, calificacion  Como Entero
+	Definir promedio, n, i Como Real
+	pin_correcto <- 123
+	
+	
+	
+	
+	Repetir
+		Escribir "inrese el pin: "
+		leer pin
+		si pin <> pin_correcto
+			Escribir "pin incorrecto, vuelve a intentar"
+		FinSi
+	Hasta que pin = pin_correcto
+	Escribir "acceso concedido, bienvenido"
+	Escribir ""
+	
+	// menu
+	opcion_menu <- 0
+	
+	Mientras opcion_menu <> 4 Hacer
+
+		Escribir "=== MENÚ PRINCIPAL ==="
+		Escribir "1) Registrar N calificaciones (0..100)"
+		Escribir "2) Reporte rápido de un rango"
+		Escribir "3) Simular curvas (tablas) con paso personalizado"
+		Escribir "4) Salir"
+		Escribir ""
+		Escribir "Seleccione una opción (1-4): "
+		Leer opcion_menu
+		Escribir ""
+		
+		Segun opcion_menu Hacer
+			1:
+				//opcion 1
+				Escribir "=== REGISTRAR CALIFICACIONES ==="
+				Escribir "Ingrese la cantidad de calificaciones a registrar: "
+				Leer n
+				
+				si n <= 0 Entonces
+					Escribir "error, ingresa una opcion de 1 a 4"
+					Escribir ""
+				SiNo
+					suma <- 0
+					max <- -1
+					min <- 101
+					aprobadas <- 0
+					
+					para i <- 1 Hasta n Hacer
+						Repetir
+							Escribir "ingresa la calificacion", i, " (0-100)"
+							Leer calificacion
+							si calificacion < 0 o calificacion > 100 Entonces
+								Escribir "error, la calificacion debe estar entre 0 y 100"
+							FinSi
+						Hasta Que calificacion >= 0 y calificacion <= 100 
+						// actualizar estadisticas
+						si calificacion > max Entonces
+							max <- calificacion
+						FinSi
+						si calificacion < min Entonces
+							min <- calificacion
+						FinSi
+						si calificacion >= 61 Entonces
+							aprobadas <- aprobadas + 1
+						FinSi
+					FinPara
+					
+					//calculo de promedio
+					promedio <- suma / n
+				FinSi
+		FinSegun
+	Fin Mientras
+FinAlgoritmo
